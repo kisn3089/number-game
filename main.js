@@ -8,66 +8,82 @@
 //유저가 1~100 범위 박예 숫자를 입력하면 알려준다, 기회를 깎지 않는다
 // 유저가 이미 입력한 숫자를 또 입력하면, 알려ㄷ준다, 기회를 깎지 않는다.
 
-let computerNum = 0;
-let playButton = document.getElementById('play_button');
-let userInput = document.getElementById("user_input");
-let resultArea = document.getElementById("result_area");
-let resetArea = document.getElementById("reset");
+// impossible hover때 주사위도 돌아가게
+
+let random = 0;
+let resultValue = document.getElementById('result-content')
+let chancesCount = document.getElementById('chance-content')
+let userNum = document.getElementById('user-text')
+let playBtn = document.getElementById('play')
+let resetBtn = document.getElementById('reset')
+let already = [];
 let chances = 5;
 let gameOver = false;
-let chancesArea = document.getElementById("chances_area");
-let history = [];
+let logo = document.getElementById('logo')
 
-playButton.addEventListener("click", play)
-resetArea.addEventListener("click", reset)
-userInput.addEventListener("focus", function(){userInput.value=""})
 
-function pickRandomNum() {
-    computerNum = Math.floor(Math.random() * 100)+1;
-    console.log("정답: ", computerNum);
+
+// 랜덤 함수 생성 1~50
+const randomNum = () => {
+    random = Math.floor((Math.random() *50))+1
+    console.log('정답',random);
 }
 
-function play() {
-    let userValue = userInput.value;
-
-    if(userValue < 1 || userValue > 100) {
-        resultArea.textContent = "1~100의 숫자를 입력하세요."
+const playGame = () => {
+    let userValue = userNum.value
+    if(userValue < 1 || userValue > 50) {
+        resultValue.textContent = "1~50사이의 숫자를 입력하세요."
         return;
     }
-
-    if(history.includes(userValue)) {
-        resultArea.textContent = "이미 입력한 숫자입니다."
+    if(already.includes(userValue)) {
+        resultValue.textContent = "이미 입력한 숫자입니다."
         return;
     }
     chances --;
-    chancesArea.textContent = `남은기회: ${chances}번`
-    if(userValue < computerNum) {
-        resultArea.textContent = "UP!!"
-    }   else if(userValue > computerNum) {
-        resultArea.textContent = "DOWN!!"
-    }   else {
-        resultArea.textContent = "딩동댕"
+    chancesCount.textContent = `Chances : ${chances}`
+    if(userValue < random) {
+        resultValue.textContent = "UP!!"
+        resultValue.style.color = "red"
+    } else if(userValue > random) {
+        resultValue.textContent = "DOWN!!"
+        resultValue.style.color = "red"
+    }  else {
+        resultValue.textContent = "딩동댕"
+        resultValue.style.color = "red"
         gameOver = true;
+        playBtn.disabled = true;
+
     }
+    already.push(userValue);
+    console.log(already)
 
-    history.push(userValue);
-    console.log(history);
-
-    if(chances < 1){
+    if(chances < 1) {
         gameOver = true;
-        playButton.disabled = true;
+        resultValue.textContent = "더 연습하고와"
+        chancesCount.textContent = "뿌애애앵ㅇ"
+        playBtn.disabled = true;
     }
 }
 
-function reset() {
-    userInput.value = "";
-    pickRandomNum();
-    resultArea.textContent = "리셋 되었습니다."
+const reset = () => {
+    userNum.value ="";
+    randomNum();
     chances = 5;
-    chancesArea.textContent = `남은기회: ${chances}번`
-    playButton.disabled = false;
-    history.length = 0;
+    resultValue.textContent = "Reseted"
+    resultValue.style.color = "#2C73D2"
+    already.length = 0;
+    chancesCount.textContent = `Chances : ${chances}`
+    playBtn.disabled = false;
+
+
+}
+function maxLengthCheck(object){
+    if (object.value.length > object.maxLength){
+        object.value = object.value.slice(0, object.maxLength);
+    }
 }
 
-
-pickRandomNum();
+userNum.addEventListener("focus", () => userNum.value = "")
+resetBtn.addEventListener("click", reset)
+playBtn.addEventListener("click", playGame)
+randomNum();

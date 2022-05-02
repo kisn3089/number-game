@@ -7,14 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/b9527c5c38.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>숫자 맞추기 게임</h1>
-    <div id="result_area">결과가 나온다.</div>
-    <div id="chances_area">남은 기회:5번</div>
-    <input id="user_input" type="number" />
-    <button id="play_button">Go!</button>
-    <button id="reset">Reset</button>
+<section id="one">
+    <div>
+        <i class="fa-solid fa-dice-four" id="logo"></i>
+    </div>
+    <h2><span>I</span>M<span>POSSIBLE</span></h2>
+    <div id="chance-content">Chances</div>
+    <input type="number" id="user-text" class="user" placeholder="Number" maxlength="2" oninput="maxLengthCheck(this)"/>
+    <div id="result-content" class="result"></div>
+    <div><button id="play" class="play">Go</button></div>
+    <div><button id="reset" class="reset">Reset</button></div>
+</section>
+
 
 <script src="main.js"></script>
 </body>

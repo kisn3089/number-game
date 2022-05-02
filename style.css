@@ -1,5 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     background-color:#111;
     color: #fff;
-    text-align: center;
+    min-height: 100vh;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#one i {
+    color: #fff;
+    font-size: 80px;
+    transform: rotate(50deg);
+    margin-bottom: 50px;
+}
+
+#one h2 {
+    font-size: 2em;
+    font-weight: 500;
+    color: #222;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+h2 span {
+    transition: 0.5s;
+}
+h2:hover span:nth-child(1) {
+    margin-right: 10px;
+}
+h2:hover span:nth-child(1):after {
+    content: "'";
+}
+h2:hover span:nth-child(2) {
+    margin-left: 40px;
+}
+h2:hover span {
+    color: #fff;
+    text-shadow: 0 0 10px #fff;
+}
+#one .user {
+    width: 300px;
+    height:30px;
+    background-color: #111;
+    border: none;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    font-size: 14px;
+}
+
+#one .result {
+    margin: 10px 0 50px 0;
+    text-align: left;
+    font-size: 14px;
+    color: red;
+
+}
+#one .user:focus {
+    outline: none;
+    border-bottom: 1px solid red;
+    transition: 1s linear;
+}
+
+#one .play,
+.reset {
+    margin: 6px 0;
+    width: 300px;
+    border: none;
+    background-color: yellow;
+    height:37px;
+    border-radius: 5px;
+    font-size: 14px;
 }
