@@ -9,6 +9,7 @@
 // 유저가 이미 입력한 숫자를 또 입력하면, 알려ㄷ준다, 기회를 깎지 않는다.
 
 // impossible hover때 주사위도 돌아가게
+// title과 logo 만들기
 
 let random = 0;
 let resultValue = document.getElementById('result-content')
@@ -19,7 +20,7 @@ let resetBtn = document.getElementById('reset')
 let already = [];
 let chances = 5;
 let gameOver = false;
-let logo = document.getElementById('logo')
+
 
 
 

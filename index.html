@@ -5,7 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Number-Game</title>
+    <link href="/.idea/dice-four-solid.svg" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/b9527c5c38.js" crossorigin="anonymous"></script>
 </head>
@@ -15,8 +16,8 @@
         <i class="fa-solid fa-dice-four" id="logo"></i>
     </div>
     <h2><span>I</span>M<span>POSSIBLE</span></h2>
-    <div id="chance-content">Chances</div>
-    <input type="number" id="user-text" class="user" placeholder="Number" maxlength="2" oninput="maxLengthCheck(this)"/>
+    <div id="chance-content" class="chances">Chances</div>
+    <input type="number" id="user-text" class="hr user" placeholder="Number" maxlength="2" oninput="maxLengthCheck(this)"/>
     <div id="result-content" class="result"></div>
     <div><button id="play" class="play">Go</button></div>
     <div><button id="reset" class="reset">Reset</button></div>

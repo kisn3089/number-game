@@ -60,6 +60,7 @@ h2:hover span {
     color: #fff;
     border-bottom: 2px solid #fff;
     font-size: 14px;
+    outline: none;
 }
 
 #one .result {
@@ -67,12 +68,15 @@ h2:hover span {
     text-align: left;
     font-size: 14px;
     color: red;
-
 }
 #one .user:focus {
-    outline: none;
     border-bottom: 1px solid red;
     transition: 1s linear;
+}
+
+#one .user:focus  .chances  {
+    transform: scale(1.5);
+    transition: all 1s ease-in-out;
 }
 
 #one .play,
@@ -84,4 +88,6 @@ h2:hover span {
     height:37px;
     border-radius: 5px;
     font-size: 14px;
+    color: #111;
 }
+
