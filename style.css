@@ -74,10 +74,6 @@ h2:hover span {
     transition: 1s linear;
 }
 
-#one .user:focus  .chances  {
-    transform: scale(1.5);
-    transition: all 1s ease-in-out;
-}
 
 #one .play,
 .reset {
@@ -89,5 +85,6 @@ h2:hover span {
     border-radius: 5px;
     font-size: 14px;
     color: #111;
+    cursor: pointer;
 }
 
