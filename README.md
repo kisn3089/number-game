@@ -1,4 +1,4 @@
-## number-game
+# Number-Game
 ## 자바스크립트 강의
 ```
 숫자 맞추기 게임 / 정답은 -> Console
